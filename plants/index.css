@@ -1,4 +1,137 @@
+* {
+    box-sizing: border-box;
+}
+
 html {
+    scroll-behavior: smooth;
     font-family: 'Inika', serif;
     font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    color: black;
 }
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+
+.header {
+    display: flex;
+    font-family: 'Inika', serif;
+    font-size: 16px;
+    line-height: 50px;
+    background-color: #edf2ec;
+  }
+
+  .logo {
+    display: flex;
+    justify-content: flex-start;
+    margin-left: 111px;
+    margin-right: 688px;
+  }
+
+  .logo-vector {
+    width: 20px;
+    height: 20px;
+    margin-top: 28px;
+  }
+
+  .nav-list {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  .nav-list {
+    list-style: none;
+  }
+
+  .nav-link {
+    padding: 0 20px;
+    line-height: 50px;
+    color: black;
+    transition: color .3s;
+    text-decoration: none;
+  }
+
+.nav-link:hover {
+    color: #e06733;
+}
+
+.welcome-section {
+  display: flex;
+  justify-content: center;
+  background-color: #edf2ec;
+}
+
+.leafs {
+  margin-left: 109px;
+  margin-top: 62px;
+  margin-bottom: 63px;
+}
+
+.welcome {
+  margin-top: 98px;
+  margin-left: 224px;
+  margin-right: 109px;
+  font-family: 'Inter';
+}
+
+h1 {
+  font-size: 45px;
+  font-weight: 700;
+  line-height: 50px;
+  color: #717171;
+}
+
+.green-text {
+  color: #499a18;
+}
+
+.welcome p {
+  margin-top: 42px;
+  font-family: 'Inter';
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 35px;
+  color: #636060;
+}
+
+.button {
+  width: 158px;
+  height: 44px;
+  margin-top: 40px;
+  margin-bottom: 94px;
+  border: 2px solid #e06733;
+  border-radius: 10px;
+  font-family: 'Inter';
+  font-weight: 400;
+  line-height: 20px;
+}
+
+.button:hover {
+  cursor: pointer;
+  color: white;
+  background-color: #e06733;
+  transition: 0.3s;
+}
+
+#about_us {
+  display: flex;
+}
+
+h2 {
+  font-family: 'Inika';
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 52.12px;
+  color: #499a18;
+}
+
+.red-text {
+  color: #e06733;
+}
+
