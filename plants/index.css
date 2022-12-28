@@ -63,20 +63,18 @@ body {
 
 .welcome-section {
   display: flex;
-  justify-content: center;
   background-color: #edf2ec;
 }
 
 .leafs {
   margin-left: 109px;
-  margin-top: 62px;
-  margin-bottom: 63px;
+  margin-right: 224px;
+ margin-bottom: 62.64px;
 }
 
 .welcome {
-  margin-top: 98px;
-  margin-left: 224px;
   margin-right: 109px;
+  margin-bottom: 94px;
   font-family: 'Inter';
 }
 
@@ -154,4 +152,81 @@ h1 {
   margin-top: 93px;
   margin-left: 153px;
   margin-right: 109px;
+}
+
+#service {
+  background-color: #edf2ec;
+}
+
+.service-buttons {
+  display: flex;
+  gap: 38px;
+  margin-right: 324px;
+}
+
+h2 {
+  margin-top: 40px;
+  margin-left: 109px;
+  margin-right: 24px;
+  font-family: 'Inika';
+  font-size: 40px;
+  line-height: 52.12px;
+  color: #499a18;
+}
+
+.service-button {
+  width: 158px;
+  height: 44px;
+  margin-top: 69px;
+  margin-bottom: 105px;
+  border: 2px solid #e06733;
+  border-radius: 10px;
+  font-family: 'Inter';
+  font-weight: 400;
+  line-height: 20px;
+  color: #e06733;
+}
+
+.service-button:hover {
+  cursor: pointer;
+  color: white;
+  background-color: #e06733;
+  transition: 0.3s;
+
+}
+
+.container {
+  margin-left: 109px;
+  column-count: 3;
+  column-width: 330px;
+  column-gap: 5px;
+}
+
+.description {
+  text-align: center;
+  width: 330px;
+  border: 1px solid #e3e1d5;
+  border-radius: 0px 0px 20px 20px;
+  margin-top: -5px;
+  margin-bottom: 55px;
+}
+
+.service-item img {
+  height: 350px;
+}
+
+.description h3 {
+  font-family: 'Inter';
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 20px;
+  color: #e06733;
+}
+
+.description p {
+  font-family: 'Inter';
+  font-size: 16px;
+  line-height: 20px;
+  color: #717171;
+  margin-bottom: 36px;
 }
