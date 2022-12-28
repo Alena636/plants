@@ -343,3 +343,53 @@ h2 {
   margin-top: 39px;
   margin-bottom: 115px;
 }
+
+#contacts {
+  background-color: #edf2ec;
+}
+
+.container-contacts {
+  max-width: 1220px;
+  margin: 0 auto;
+  display: flex;
+}
+
+.container h2 {
+  font-family: 'Inika';
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 52px;
+  color: #499a18;
+  text-align: center;
+}
+
+.woman {
+  width: 400px;
+  height: 497px;
+  margin-top: 53px;
+}
+
+.city {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 50px;
+  width: 450px;
+  margin-top: 153px;
+  background-color: #d6e7d2;
+}
+
+.city img {
+  width: 16px;
+  height: 16px;
+  margin-right: 17px;
+}
+
+.city p {
+ font-family: 'Inter';
+ font-size: 20px;
+ line-height: 40px;
+ color: #717171;
+ margin-left: 20px;
+}
+
