@@ -16,33 +16,47 @@ body {
     justify-content: space-between;
     max-width: 1440px;
     margin: 0 auto;
+    padding: 0;
+  }
+
+  ul, li {
+    padding: 0;
+    margin: 0;
   }
 
 .header {
-    display: flex;
     font-family: 'Inika', serif;
     font-size: 16px;
     line-height: 50px;
     background-color: #edf2ec;
   }
 
+  .header-container {
+    max-width: 1220px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+  }
+
   .logo {
     display: flex;
-    justify-content: flex-start;
-    margin-left: 111px;
-    margin-right: 688px;
+    align-items: center;
+    margin-top: 26px;
+    margin-left: -40px;
+
   }
 
   .logo-vector {
     width: 20px;
     height: 20px;
-    margin-top: 28px;
   }
 
   .nav-list {
     display: flex;
     justify-content: flex-end;
     align-items: center;
+    margin-top: 42px;
+    gap: 16px;
   }
 
   .nav-list {
@@ -66,17 +80,24 @@ body {
   background-color: #edf2ec;
 }
 
-.leafs {
-  margin-left: 109px;
-  margin-right: 224px;
- margin-bottom: 62.64px;
+.welcome-container {
+  max-width: 1220px;
+  margin: 0 auto;
+  display: flex;
+  gap: 226px;
+}
+
+.welcome-container img {
+  margin-top: 78px;
+  margin-left: -40px;
+  width: 448.8px;
+  height: 407.36px;
 }
 
 .welcome {
-  margin-right: 109px;
-  margin-bottom: 94px;
-  font-family: 'Inter';
+  margin-top: 84px;
 }
+
 
 h1 {
   font-size: 45px;
@@ -90,8 +111,10 @@ h1 {
 }
 
 .welcome p {
-  margin-top: 42px;
+  width: 525px;
+  margin-top: 44px;
   font-family: 'Inter';
+  text-align: start;
   font-size: 20px;
   font-weight: 400;
   line-height: 35px;
@@ -101,12 +124,13 @@ h1 {
 .button {
   width: 158px;
   height: 44px;
-  margin-top: 40px;
+  margin-top: 30px;
   margin-bottom: 94px;
   border: 2px solid #e06733;
   border-radius: 10px;
   font-family: 'Inter';
   font-weight: 400;
+  font-size: 16px;
   line-height: 20px;
 }
 
@@ -121,10 +145,16 @@ h1 {
   display: flex;
 }
 
+.about-container {
+  max-width: 1220px;
+  margin: 0 auto;
+  display: flex;
+}
+
 .about-us {
-  margin-top: 161px;
-  margin-left: 109px;
-  margin-right: 150px;
+  width: 463px;
+  margin-top: 160px;
+  margin-left: -40px;
   font-family: 'Inika';
   font-weight: 400;
   font-size: 40px;
@@ -137,8 +167,9 @@ h1 {
 }
 
 .about p {
+  width: 605px;
   margin-top: 40px;
-  margin-left: 109px;
+  margin-left: -40px;
   margin-bottom: 155px;
   font-family: 'Inter';
   font-size: 20px;
@@ -149,9 +180,9 @@ h1 {
 .houseplant {
   width: 464px;
   height: 479px;
-  margin-top: 93px;
-  margin-left: 153px;
-  margin-right: 109px;
+  margin-top: 88px;
+  margin-left: 148px;
+  margin-right: 106px;
 }
 
 #service {
@@ -165,9 +196,10 @@ h1 {
 }
 
 h2 {
-  margin-top: 40px;
-  margin-left: 109px;
-  margin-right: 24px;
+  width: 306px;
+  margin-top: -10px;
+  margin-left: 68px;
+  margin-right: 106px;
   font-family: 'Inika';
   font-size: 40px;
   line-height: 52.12px;
@@ -175,15 +207,16 @@ h2 {
 }
 
 .service-button {
-  width: 158px;
-  height: 44px;
-  margin-top: 69px;
+  width: 161px;
+  height: 50px;
+  margin-top: 18px;
   margin-bottom: 105px;
-  border: 2px solid #e06733;
-  border-radius: 10px;
-  font-family: 'Inter';
+  border: 1px solid #e06733;
+  border-radius: 5px;
+  font-family: 'Inika';
   font-weight: 400;
-  line-height: 20px;
+  font-size: 20px;
+  line-height: 26px;
   color: #e06733;
 }
 
@@ -195,10 +228,11 @@ h2 {
 }
 
 .container {
-  margin-left: 109px;
+  margin-left: 68px;
   column-count: 3;
   column-width: 330px;
-  column-gap: 5px;
+  column-gap: 0px;
+  margin-right: 28px;
 }
 
 .description {
@@ -212,9 +246,11 @@ h2 {
 
 .service-item img {
   height: 350px;
+  width: 329px;
 }
 
 .description h3 {
+  margin-top: 10px;
   font-family: 'Inter';
   font-weight: 700;
   font-size: 20px;
@@ -231,6 +267,7 @@ h2 {
 }
 
 .prices h2 {
+  margin-top: 138px;
   font-family: 'Inter';
   font-weight: 700;
   font-size: 40px;
@@ -241,7 +278,7 @@ h2 {
 #price {
   display: flex;
   justify-content: space-between;
-  gap: 438px;
+  gap: 360px;
 }
 
 .accordion {
@@ -254,7 +291,7 @@ h2 {
   height: 282px;
   border: 1px solid #e3e1d5;
   border-radius: 20px;
-  margin-left: 109px;
+  margin-left: 68px;
   margin-top: 60px;
 }
 
@@ -293,38 +330,45 @@ h2 {
 .accordion img {
   width: 16px;
   height: 16px;
+  margin-right: -20px;
 }
 
 .accordion p {
   font-family: 'Inter';
   font-weight: 700;
-  size: 20px;
+  font-size: 20px;
+  line-height: 20px;
   color: black;
+  margin-left: -20px;
 }
 
 .contact-us {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  margin-right: 109px;
- 
+  margin-right: 200px;
+  margin-top: 8px;
 }
 
 .contact-us h3 {
+  width: 452px;
+  height: 103px;
   font-family: 'Inter';
   font-weight: 700;
   font-size: 40px;
   line-height: 50px;
   text-align: right;
+  margin-top: 132px;
 }
 
 .btn-price {
-  width: 158px;
-  height: 44px;
-  border: 2px solid #e06733;
-  border-radius: 10px;
-  font-family: 'Inter';
-  font-weight: 400;
+  width: 162px;
+  height: 50px;
+  border: 1px solid #e06733;
+  border-radius: 5px;
+  font-family: 'Inika';
+  font-weight: 700;
+  font-size: 20px;
   line-height: 20px;
   color: #e06733;
   background-color: white;
@@ -340,7 +384,7 @@ h2 {
 .contact-us img {
   width: 152px;
   height: 175px;
-  margin-top: 39px;
+  margin-top: 36px;
   margin-bottom: 115px;
 }
 
@@ -354,19 +398,25 @@ h2 {
   display: flex;
 }
 
-.container h2 {
+.container-contacts h2 {
+  width: 195px;
+  height: 51px;
   font-family: 'Inika';
   font-weight: 700;
   font-size: 40px;
   line-height: 52px;
   color: #499a18;
   text-align: center;
+  margin-top: 59px;
+  margin-left: 84px;
+
 }
 
 .woman {
   width: 400px;
   height: 497px;
   margin-top: 53px;
+  margin-left: -40px;
 }
 
 .city {
@@ -375,8 +425,10 @@ h2 {
   justify-content: space-between;
   height: 50px;
   width: 450px;
-  margin-top: 153px;
+  margin-top: 148px;
+  margin-right: 40px;
   background-color: #d6e7d2;
+
 }
 
 .city img {
@@ -393,3 +445,74 @@ h2 {
  margin-left: 20px;
 }
 
+.container-footer {
+  max-width: 1220px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  gap: 337px;
+  margin-top: 20px;
+  margin-left: -38px;
+}
+
+.footer-text {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+
+.footer-list {
+ display: flex;
+justify-content: flex-end;
+align-items: center;
+list-style: none;
+margin-top: 48px;
+width: 188px;
+height: 50px;
+gap: 20px;
+}
+
+.links {
+  margin-right: 40px;
+}
+
+.footer-link {
+line-height: 50px;
+color: black;
+transition: color .3s;
+text-decoration: none;
+}
+
+.footer-link:hover {
+color: #e06733;
+}
+
+.footer-text p {
+  color: black;
+  font-family: 'Inter';
+  font-size: 20px;
+  line-height: 50px;
+}
+
+.rss-link {
+  text-align: center;
+  text-decoration: none;
+  color: black;
+  font-family: 'Inter';
+  font-size: 20px;
+  line-height: 50px;
+}
+
+.git-link {
+  text-decoration: none;
+  color: black;
+  font-family: 'Inter';
+  font-size: 20px;
+  line-height: 50px;
+}
