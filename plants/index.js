@@ -1,150 +1,199 @@
-const iconBurger = document.querySelector('.nav-icon');
-const navList = document.querySelector('.nav-list');
-if (iconBurger) {
-    iconBurger.addEventListener("click",  function () {
-            document.body.classList.toggle('_lock');
-            iconBurger.classList.toggle('_active');
-            navList.classList.toggle('_active');
-        });
+// Humburger - menu - const
+const humb = document.querySelector('.hamb__field');
+const popup = document.querySelector('.popup');
+const navbar = document.querySelector('.nav__items').cloneNode(1);
+const body = document.body;
+
+//Blur Section - const
+const allServiceButtons = document.querySelectorAll('.service__button');
+const gardensButton = document.querySelector('.gardens_button');
+const lawnButton = document.querySelector('.lawn_button');
+const plantingButton = document.querySelector('.planting_button');
+
+const allCards = document.querySelectorAll('.service__one__card'); // all Cards
+const gardensCards = document.querySelectorAll('.gardens_card'); // Gardens Cards
+const plantingCards = document.querySelectorAll('.planting_card'); // Planting Cards
+const lawnCards = document.querySelectorAll('.lawn_card'); // Lawn Cards
+
+//Accordeon Section - const
+const allAccordeon = document.querySelectorAll('.prices__accordion');
+const allPricesCard = document.querySelectorAll('.prices__item');
+const allPricesIcon = document.querySelectorAll('.prices__icon');
+const allPricesButton = document.querySelectorAll('.prices__button');
+
+//City Section - const
+const contactsCityButton = document.querySelector('.contacts__city');
+const allCityList = document.querySelector('.city__accordeon');
+const contactsIcon = document.querySelector('.contacts__icon');
+const textCity = document.querySelector('.contacts__text');
+const cityLinks = document.querySelectorAll('.city-link');
+const allCardsWithCitys = document.querySelectorAll('.city-phone_card');
+
+
+// Humburger - menu
+humb.addEventListener('click', humbHandler);   // Pop-up service
+navbar.addEventListener('click', hiddenPopup); // Hidden popup after click
+
+
+function humbHandler(event) {
+  event.preventDefault();
+  // change style for click
+  popup.classList.toggle('open');
+  humb.classList.toggle('active');
+  body.classList.toggle('noscroll');
+  renderPopUp();
 }
 
+function renderPopUp() {
+    popup.appendChild(navbar);
+}
 
-const navLinks = document.querySelectorAll('.nav-link[data-goto]');
-if (navLinks.length > 0) {
-    navLinks.forEach(navLink => {
-        navLink.addEventListener("click", onNavLinkClick);
-    });
+function hiddenPopup() {
+  popup.classList.remove('open');
+  humb.classList.remove('active');
+}
 
-    function onNavLinkClick(e) {
-        const navLink = e.target;
-        if (navLink.dataset.goto && document.querySelector(navLink.dataset.goto)) {
-            const gotoBlock = document.querySelector(navLink.dataset.goto);
-            const gotoBlockValue = gotoBlock.getBoundingClientRect().top + pageYOffset - document.querySelector('header').offsetHeight;
-
-            if(iconBurger.classList.contains('_active')) {
-                document.body.classList.remove('_lock');
-                iconBurger.classList.remove('_active');
-                navList.classList.remove('_active');
-            }
-
-            window.scrollTo({
-                top: gotoBlockValue,
-                behavior: "smooth"
-            });
-            e.preventDefault();
-        }
-    
+//The menu is hidden if you click outside the given window
+document.addEventListener('DOMContentLoaded', () => { 
+  window.addEventListener('click', e => {
+    const target = e.target;
+    if (!target.closest('.nav__items') && !target.closest('.hamb__field')) {
+      hiddenPopup();
     }
+  });
+});
+
+//Blur Section
+gardensButton.addEventListener('click', () => blurGardensCards(gardensButton,'gardens_card'));
+plantingButton.addEventListener('click', () => blurGardensCards(plantingButton,'planting_card'));
+lawnButton.addEventListener('click', () => blurGardensCards(lawnButton,'lawn_card'));
+
+function blurGardensCards(nameButton, nameClass) {
+  nameButton.classList.toggle('orange');
+  checkButtons();
+
+  let count = 0;
+  for (let allServiceButton of allServiceButtons) {
+    if (allServiceButton.classList.contains('orange')) {
+      count++;
+    }
+  }
+
+  //TURN OFF BUTTON
+  if (!nameButton.classList.contains('orange')) {
+    if (count == 0) {
+      for (let allCard of allCards) {
+        allCard.classList.remove('blur');
+      }
+    } else {
+      for (let allCard of allCards) {
+        if (allCard.classList.contains(nameClass)) {
+          allCard.classList.add('blur');
+        }
+      }
+    }
+  } else {  //TURN ON BUTTON
+    for (let allCard of allCards) {
+      if (count === 1) {
+        if (!allCard.classList.contains(nameClass)) {
+          allCard.classList.toggle('blur');
+        }
+      } else if (count === 2) {
+        if (allCard.classList.contains(nameClass)) {
+          allCard.classList.remove('blur');
+        }
+      }
+    }
+  }
+} 
+
+function checkButtons() {
+  let count = 0;
+  for (let allServiceButton of allServiceButtons) {
+    if (allServiceButton.classList.contains('orange')) {
+      count++;
+    }
+  }
+  if (count >= 2) {
+    for (let allServiceButton of allServiceButtons) {
+      if (!allServiceButton.classList.contains('orange')) {
+        allServiceButton.classList.add('blur');
+        allServiceButton.disabled = true;
+      }
+    }
+  } else { 
+    for (let allServiceButton of allServiceButtons) {
+      allServiceButton.classList.remove('blur');
+      allServiceButton.disabled = false;
+    }
+  }
 }
 
-const gardens = document.querySelector('.service-button.gardens')
-const blur = document.querySelector('.service-item.planting1') 
-const plant2 = document.querySelector('.service-item.planting2')
-const plant3 = document.querySelector('.service-item.planting3')
-const lawnImg = document.querySelector('.service-item.lawn')
-const lawn = document.querySelector('.service-button.lawn')
-const garden1 = document.querySelector('.service-item.garden')
-const garden2 = document.querySelector('.service-item.garden2')
-const plantBtn = document.querySelector('.service-button.plant')
+//Accordeon Section
+allPricesButton.forEach((btn, i) => {
+  btn.addEventListener("click", () => {
+    if (!allAccordeon[i].classList.contains("open")) {
+      allAccordeon[i].classList.add("open");
+      allPricesCard[i].style.backgroundColor = "#d6e7d2";
+      allPricesIcon[i].src = "./assets/img/drop_btn.png";
+    } else {
+      hiddenCityCard(i);
+    }
 
+    for (let j = 0; j < allPricesButton.length; j++) {
+      if (i != j) {
+        hiddenCityCard(j);
+      }
+    }
+  });
+});
 
-gardens.addEventListener("click",  function () {
-    blur.classList.toggle('_bluring');
-     plant2.classList.toggle('_bluring');
-    plant3.classList.toggle('_bluring');
-    lawnImg.classList.toggle('_bluring');
-    gardens.classList.toggle('_active-button')
-} )
+function hiddenCityCard(index) {
+  allAccordeon[index].classList.remove("open");
+  allPricesCard[index].style.backgroundColor = "#edf2ec";
+  allPricesIcon[index].src = "./assets/img/accordion_btn.png";
+}
 
-lawn.addEventListener("click", function() {
-    garden1.classList.toggle('_bluring')
-     garden2.classList.toggle('_bluring')
-     blur.classList.toggle('_bluring');
-    plant2.classList.toggle('_bluring');
-    plant3.classList.toggle('_bluring');
-    lawn.classList.toggle('_active-button') 
- })
+//City Section
+contactsCityButton.addEventListener('click', () => toggleCityInfo());
 
- plantBtn.addEventListener("click", function() {
-     garden1.classList.toggle('_bluring')
-     garden2.classList.toggle('_bluring')
-    lawnImg.classList.toggle('_bluring');
-    plantBtn.classList.toggle('_active-button')
- })
+function toggleCityInfo() {
+  if (!allCityList.classList.contains('open')) {
+    allCityList.classList.add('open');
+    closeAllCards();
+    textCity.textContent = 'City';
+    contactsCityButton.style.backgroundColor = '#c1e698';
+    contactsCityButton.style.boxShadow = 'none';
+    contactsIcon.src = './assets/img/drop_btn.png';
+  } else {
+    allCityList.classList.remove('open');
+    contactsCityButton.style.backgroundColor = '#d6e7d2';
+    contactsCityButton.style.boxShadow = '0px 4px 4px rgba(0, 0, 0, 0.25)';
+    contactsIcon.src = './assets/img/accordion_btn.png';
+  }
+}
 
- 
+function closeAllCards() {
+  allCardsWithCitys.forEach((card) => {
+    card.classList.add('close');
+  });
+}
 
+cityLinks.forEach((btn, i) => {
+  btn.addEventListener('click', () => {
+    toggleCityInfo();
+    allCardsWithCitys[i].classList.remove('close');
+    textCity.textContent = btn.textContent;
+  });
+});
 
- document.querySelectorAll('.accordion').forEach((el) => {
-    el.addEventListener("click", () => {
-        let description = el.nextElementSibling;
-
-        description.classList.add('active-accordion')
-        if(description.style.maxHeight) {
-            document.querySelectorAll('.description-wrapper').forEach((el) => el.style.maxHeight = null)
-        } else {
-            document.querySelectorAll('.description-wrapper').forEach((el) => el.style.maxHeight = null)
-            description.style.maxHeight = description.scrollHeight + 'px'
-        }
-    })
-})
-
-
-
-let dropdown = document.querySelector('.drop-name')
-let wrapper = document.querySelector('.dropdown-wrapper')
-let dropWrapper = document.querySelector('.dropdown')
-dropdown.addEventListener("click", () => {
-    dropdown.classList.toggle('active-drop')
-    wrapper.classList.toggle('active-wrapper')
-    dropWrapper.classList.toggle('active-dropdown')
-    city1.classList.remove('active-city')
-    city2.classList.remove('active-city2')
-    city3.classList.remove('active-city2')
-    city4.classList.remove('active-city2')
-})
-
-
-let city1 = document.querySelector('.city1')
-let dropItem1 = document.querySelector('.drop-item.cana')
-dropItem1.addEventListener("click", () => {
-city1.classList.toggle('active-city')
-dropWrapper.classList.remove('active-dropdown')
-})
-
-let city2 = document.querySelector('.city2')
-let dropItem2 = document.querySelector('.drop-item.ny')
-dropItem2.addEventListener("click", () => {
-    city2.classList.toggle('active-city2')
-    dropWrapper.classList.remove('active-dropdown')
-})
-
-let city3 = document.querySelector('.city3')
-let dropItem3 = document.querySelector('.drop-item.yonkers')
-dropItem3.addEventListener("click", () => {
-    city3.classList.toggle('active-city2')
-    dropWrapper.classList.remove('active-dropdown')
-})
-
-let city4 = document.querySelector('.city4')
-let dropItem4 = document.querySelector('.drop-item.sherrill')
-dropItem4.addEventListener("click", () => {
-    city4.classList.toggle('active-city2')
-    dropWrapper.classList.remove('active-dropdown')
-})
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-
-    
+//The Citys cards is hidden if you click outside the given window
+document.addEventListener('DOMContentLoaded', () => { 
+  window.addEventListener('click', e => {
+    const target = e.target;
+    if (!target.closest('.items__city-links')) {
+      closeAllCards();
+      textCity.textContent = 'City';
+    }
+  });
+});
